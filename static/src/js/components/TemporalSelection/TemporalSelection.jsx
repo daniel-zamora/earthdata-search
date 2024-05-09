@@ -72,7 +72,7 @@ export class TemporalSelection extends Component {
    * @param {object} temporal - An object containing temporal values
    */
   checkTemporal(temporal) {
-    const format = 'YYYY-MM-DDTHH:m:s.SSSZ'
+    const format = moment.ISO_8601
     const start = moment.utc(temporal.startDate, format, true)
 
     const end = moment.utc(temporal.endDate, format, true)
