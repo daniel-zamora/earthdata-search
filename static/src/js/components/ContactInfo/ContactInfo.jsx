@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { FaExternalLinkAlt } from 'react-icons/fa'
-import { isEmpty } from 'lodash'
+import { isEmpty } from 'lodash-es'
 
 import { getEarthdataConfig } from '../../../../../sharedUtils/config'
 
