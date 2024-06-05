@@ -3,9 +3,9 @@ import { test, expect } from 'playwright-test-coverage'
 import { login } from '../../support/login'
 import { testJwtToken } from '../../support/getJwtToken'
 
-import graphQlHeaders from './__mocks__/graphql.headers.json'
-import getSubscriptionsGraphQlBody from './__mocks__/getSubscriptions.graphql.body.json'
-import collectionFixture from './__mocks__/authenticated_collections.json'
+import graphQlHeaders from './__mocks__/graphql.headers.json' with { type: 'json' }
+import getSubscriptionsGraphQlBody from './__mocks__/getSubscriptions.graphql.body.json' with { type: 'json' }
+import collectionFixture from './__mocks__/authenticated_collections.json' with { type: 'json' }
 
 // At the default size, react-window will render 6 items
 const expectedCollectionCount = 6
@@ -13,7 +13,7 @@ const expectedCollectionCount = 6
 test.describe('Authentication', () => {
   test.beforeEach(async ({ page }) => {
     await page.route('**/*.{png,jpg,jpeg}', (route) => route.abort())
-    await page.route(/collections/, async (route) => {
+    await page.route(/collections$/, async (route) => {
       await route.fulfill({
         json: collectionFixture.body,
         headers: collectionFixture.headers
