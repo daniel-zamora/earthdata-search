@@ -4,10 +4,8 @@ import singleCollection from './__mocks__/single_collection.json'
 const dragPanelToX = async (page, x) => {
   const handle = page.locator('[data-testid="panels__handle"]')
   await handle.hover()
-  const bbox = await handle.boundingBox()
-  const { y } = bbox
   await handle.dispatchEvent('mousedown', { button: 0 })
-  await handle.dispatchEvent('mousemove', { clientX: x }) 
+  await handle.dispatchEvent('mousemove', { clientX: x })
   await handle.dispatchEvent('mouseup', { button: 0 })
 }
 
