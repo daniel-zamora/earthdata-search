@@ -1,6 +1,6 @@
 import L from 'leaflet'
 import forge from 'node-forge'
-import { isEqual } from 'lodash'
+import { isEqual } from 'lodash-es'
 
 import { eventEmitter } from '../../events/events'
 import { colorOptions } from '../SpatialSelection/SpatialSelection'
