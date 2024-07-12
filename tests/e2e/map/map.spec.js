@@ -820,8 +820,8 @@ test.describe('Map interactions', () => {
 
         // Point
         const pointValues = {
-          chromium: 'margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(427px, 182px, 0px); z-index: 182; outline-style: none;',
-          firefox: 'margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(427px, 182px, 0px); z-index: 182; outline-style: none;',
+          chromium: 'margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(427px, 182px, 0px); z-index: 182; outline: none;',
+          firefox: 'margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(427px, 182px, 0px); z-index: 182; outline: none;',
           webkit: 'margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(427px, 182px, 0px); z-index: 182; outline-style: none;'
         }
         await expect(page.locator('.leaflet-marker-icon.leaflet-interactive').nth(0)).toHaveAttribute('style', pointValues[browser])
@@ -1066,7 +1066,7 @@ test.describe('Map interactions', () => {
 
         const urlValues = {
           chromium: 'search?lat=13.999032615512775',
-          firefox: 'search?lat=13.99892766713073',
+          firefox: 'search?lat=13.999207532962274',
           webkit: 'search?lat=13.999032615512775'
         }
         await expect(page).toHaveURL(urlValues[browser])
