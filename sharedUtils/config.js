@@ -1,15 +1,16 @@
 import { merge } from 'lodash-es'
 
-import staticConfig from '../static.config.json' with { type: 'json' }
+import staticConfig from '../static.config.json'
 // eslint-disable-next-line import/no-unresolved
-import secretConfig from '../secret.config.json' with { type: 'json' }
-import overrideConfig from '../overrideStatic.config.json' with { type: 'json' }
+import secretConfig from '../secret.config.json'
+// eslint-disable-next-line import/no-unresolved
+import overrideConfig from '../overrideStatic.config.json'
 
 const getConfig = () => {
   try {
-    // eslint-disable-next-line global-require, import/no-unresolved
+    const merged = merge(staticConfig, overrideConfig)
 
-    return merge(staticConfig, overrideConfig)
+    return merged
   } catch (error) {
     return staticConfig
   }

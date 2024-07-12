@@ -75,8 +75,6 @@ export const doSearchRequest = async ({
 
     console.log(`Request ${requestId} completed external request in [reported: ${cmrTook} ms, observed: ${elapsedTime} ms]`)
 
-    console.log("🚀 ~ JSON.stringify(data:", JSON.stringify(data))
-
     return {
       statusCode: response.status,
       headers: {

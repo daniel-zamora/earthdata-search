@@ -12,14 +12,11 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 
-// const vitePreprocessor = require('cypress-vite')
+module.exports = (on, config) => {
+  // `on` is used to hook into various events Cypress emits
+  // `config` is the resolved Cypress config
 
-// module.exports = (on, config) => {
-//   // `on` is used to hook into various events Cypress emits
-//   // `config` is the resolved Cypress config
+  require('@cypress/code-coverage/task')(on, config)
 
-//   // require('@cypress/code-coverage/task')(on, config)
-//   // on('file:preprocessor', vitePreprocessor())
-
-//   // return config
-// }
+  return config
+}

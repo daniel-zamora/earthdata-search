@@ -1,14 +1,14 @@
 import { test, expect } from 'playwright-test-coverage'
 
-import collectionsGraphJson from './__mocks__/collections_graph.json' with { type: 'json' }
-import timeline from './__mocks__/timeline.json' with { type: 'json' }
-import granules from './__mocks__/granules.json' with { type: 'json' }
-import providers from './__mocks__/providers.json' with { type: 'json' }
-import accessMethods from './__mocks__/access_methods.json' with { type: 'json' }
-import collectionFixture from './__mocks__/authenticated_collections.json' with { type: 'json' }
-
 import { login } from '../../support/login'
 import { getAuthHeaders } from '../../support/getAuthHeaders'
+
+const collectionsGraphJson = require('./__mocks__/collections_graph.json')
+const timeline = require('./__mocks__/timeline.json')
+const granules = require('./__mocks__/granules.json')
+const providers = require('./__mocks__/providers.json')
+const accessMethods = require('./__mocks__/access_methods.json')
+const collectionFixture = require('./__mocks__/authenticated_collections.json')
 
 test.describe('Timeline spec', () => {
   test.beforeEach(async ({ page }, testInfo) => {

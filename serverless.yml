@@ -80,13 +80,11 @@ provider:
 plugins:
   - serverless-esbuild
   - serverless-finch
-  #- serverless-webpack
   - serverless-step-functions
   - serverless-plugin-split-stacks
   - serverless-plugin-log-subscription
   - serverless-plugin-ifelse
   - serverless-offline
-  #- ./serverless-plugins/serverless-webpack-include-migrations.js
 
 #
 # Lambda Functions
@@ -107,6 +105,9 @@ stepFunctions: ${file(./serverless-configs/${self:provider.name}-step-functions.
 # each lambda but increases the complexity of the compilation process slightly
 package:
   individually: true
+  patterns:
+  # TODO this adds migrations to every lambda package, we need to only provide them to the migrateDatabase function
+    - 'migrations/**'
 
 configValidationMode: error
 
@@ -190,6 +191,13 @@ custom:
     # https://github.com/dherault/serverless-offline#run-modes
     # useInProcess: true
 
+  # Don't minify the build in development
+  minifyBuild:
+    dev: false
+    sit: true
+    uat: true
+    prod: true
+
   # Serverless esbuild configurations
   esbuild:
     loader:
@@ -197,7 +205,7 @@ custom:
     external:
       - knex
     bundle: true
-    minify: false
+    minify: ${self:custom.minifyBuild.${self:provider.stage}}
 
   # Serverless Webpack configurations
   webpack:

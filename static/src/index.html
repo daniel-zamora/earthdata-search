@@ -22,7 +22,7 @@
         padding: 0;
         margin: 0;
       }
-    
+
       body {
         display: block;
         display: flex;
@@ -30,20 +30,20 @@
         background-color: #000;
         overflow: hidden;
       }
-    
+
       .th-wrapper {
         width: 100%;
         z-index: 1000;
         height: 34px;
       }
-    
+
       .root {
         position: relative;
         height: 100%;
         width: 100%;
         overflow: hidden;
       }
-    
+
       .root__app {
         display: flex;
         flex-direction: column;
@@ -51,7 +51,7 @@
         width: 100%;
         overflow: hidden;
       }
-    
+
       .root__loading {
         display: none;
         position: absolute;
@@ -63,15 +63,15 @@
         background-color: black;
         transition: opacity 0.15s ease-out;
       }
-    
+
       .root--loading .root__loading {
         display: block;
       }
-    
+
       .root--loading-fade .root__loading{
         opacity: 0;
       }
-    
+
       .root__spinner {
         display: block;
         position: absolute;
@@ -79,13 +79,13 @@
         left: 50%;
         transform: translate(-50%, -50%)
       }
-    
+
       .fallback-page,
       .fallback-page__wrapper--no-js,
       .fallback-page__wrapper--unsupported-browser {
         display: none;
       }
-    
+
       .fallback-page {
         position: absolute;
         top: 0;
@@ -97,11 +97,11 @@
         padding: 0px;
         background-color: #191a1b;
       }
-    
+
       .fallback-page__wrapper {
         height: 100%;
       }
-    
+
       .fallback-page__content {
         position: relative;
         top: 150px;
@@ -114,66 +114,66 @@
         border-radius: 4px;
         border-radius: 0.25rem;
       }
-    
+
       .fallback-page__wrapper--unsupported-browser .fallback-page__content {
         max-width: 850px;
       }
-    
+
       .lt-ie8 .fallback-page__heading {
         margin-top: 16px;
       }
-    
+
       .fallback-page__note--last {
         margin-bottom: 0;
       }
-    
+
       .footer.fallback-page__footer {
         position: absolute;
         bottom: 0;
         width: 100%;
       }
-    
+
       .lt-ie8 .footer__info--right {
         float: right;
         margin: 10px;
       }
-    
+
       .lt-ie8 .footer__info--left {
         float: left;
         margin: 10px;
       }
-    
+
       .no-js .fallback-page,
       .no-js .fallback-page__wrapper--no-js {
         display: block;
       }
-    
+
       .unsupported-browser .fallback-page,
       .unsupported-browser .fallback-page__wrapper--unsupported-browser {
         display: block;
       }
-    
+
       .no-js .root,
       .unsupported-browser .root {
         display: none;
       }
-    
+
       .no-js .th-wrapper,
       .unsupported-browser .th-wrapper {
         display: none;
       }
-    
+
       .lt-ie11 .unsupported-browser {
         display: block;
       }
-    
+
       .browser-icons {
         margin-top: 2em;
         margin-top: 2rem;
         padding: 0;
         list-style-type: none;
       }
-    
+
       .browser-icons__item {
         display: inline-block;
         *display: inline;
@@ -183,7 +183,7 @@
         height: 122px;
         margin: 0px 10px 10px 10px;
       }
-    
+
       .browser-icons__icon {
         display: block;
         width: 100px;
@@ -194,27 +194,27 @@
         background-position: 0% 0%;
         background-repeat: no-repeat no-repeat;
       }
-    
+
       .browser-icons__icon--chrome {
         background-image: url('images/browsers/browser_chrome.gif');
       }
-    
+
       .browser-icons__icon--firefox {
         background-image: url('images/browsers/browser_firefox.gif');
       }
-    
+
       .browser-icons__icon--safari {
         background-image: url('images/browsers/browser_safari.gif');
       }
-    
+
       .browser-icons__icon--opera {
         background-image: url('images/browsers/browser_opera.gif');
       }
-    
+
       .browser-icons__icon--ie {
         background-image: url('images/browsers/browser_ie.gif');
       }
-    
+
       .browser-icons__name {
         display: block;
         margin: 8px auto 0;
@@ -253,16 +253,16 @@
         if (htmlElement) {
             // Remove the 'no-js' class from the html element
             htmlElement.className = htmlElement.className.replace(/\bno-js\b/, '');
-    
+
             // Add the 'unsupported-browser' class to the html element
             // https://stackoverflow.com/questions/49986720/how-to-detect-internet-explorer-11-and-below-versions
             function isOldIE() {
                 var ua = window.navigator.userAgent;
                 var msie = ua.indexOf('MSIE ');
-    
+
                 return (msie > 0);
             }
-    
+
             if (isOldIE()) {
                 htmlElement.className += ' unsupported-browser'
             }
@@ -367,8 +367,8 @@
   <script type="text/javascript">feedback.init({ showIcon: false });</script>
   <% } %>
   <% if (env !== 'dev') { %>
-    <script 
-      async 
+    <script
+      async
       type="text/javascript"
       src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&subagency=GSFC"
       id="_fed_an_ua_tag">
@@ -383,7 +383,7 @@
           'localGAProperty': '<%= gaPropertyId %>'
         });
       <% } %>
-    
+
       (function (w, d, s, l, i) {
       w[l] = w[l] || []; w[l].push({
         'gtm.start':
