@@ -91,7 +91,7 @@ class Datepicker extends PureComponent {
         timeFormat={false}
         utc
         value={value}
-        viewMode={viewMode}
+        initialViewMode={viewMode}
       />
     )
   }
