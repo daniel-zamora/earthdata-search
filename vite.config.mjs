@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { ViteEjsPlugin } from 'vite-plugin-ejs'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import rollupNodePolyFill from 'rollup-plugin-polyfill-node'
 import { resolve } from 'path'
 
 import availablePortals from './portals/index'
@@ -20,7 +21,6 @@ const { ui } = portalConfig
 const { showTophat } = ui
 
 export default defineConfig({
-  root: 'static/src',
   server: {
     host: true,
     port: 8080
@@ -46,6 +46,30 @@ export default defineConfig({
       '~bootstrap': resolve(__dirname, 'node_modules/bootstrap'),
       '~Fonts': resolve(__dirname, 'static/src/assets/fonts'),
       '~Images': resolve(__dirname, 'static/src/assets/images')
+    }
+  },
+  build: {
+    rollupOptions: {
+      plugins: [
+        rollupNodePolyFill()
+      ]
+    }
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: 'test-setup.js',
+    clearMocks: true,
+    coverage: {
+      enabled: true,
+      include: [
+        'serverless/src/**/*.js',
+        'static/src/**/*.js',
+        'static/src/**/*.jsx'
+      ],
+      provider: 'istanbul',
+      reporter: ['text', 'lcov', 'clover', 'json'],
+      reportOnFailure: true
     }
   }
 })
