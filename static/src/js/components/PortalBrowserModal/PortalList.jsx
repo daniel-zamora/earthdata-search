@@ -4,8 +4,10 @@ import { sortBy } from 'lodash-es'
 import { Row, Col } from 'react-bootstrap'
 
 import { locationPropType } from '../../util/propTypes/location'
-import { availablePortals } from '../../../../../portals'
 import { usePortalLogo } from '../../hooks/usePortalLogo'
+
+// eslint-disable-next-line import/no-unresolved
+import availablePortals from '../../../../../portals/availablePortals.json'
 
 import PortalLinkContainer from '../../containers/PortalLinkContainer/PortalLinkContainer'
 import Spinner from '../Spinner/Spinner'

@@ -11,7 +11,8 @@ import { getApplicationConfig } from '../../../../../sharedUtils/config'
 import { isDefaultPortal, buildConfig } from '../../util/portals'
 import { locationPropType } from '../../util/propTypes/location'
 
-import { availablePortals } from '../../../../../portals'
+// eslint-disable-next-line import/no-unresolved
+import availablePortals from '../../../../../portals/availablePortals.json'
 
 export const mapDispatchToProps = (dispatch) => ({
   onChangePath:

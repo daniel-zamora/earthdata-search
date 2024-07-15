@@ -18,6 +18,9 @@
     }
   ],
   "scripts": {
+    "build-available-portals": "node portals/buildAvailablePortals.js",
+    "prestart": "npm run build-available-portals",
+    "postinstall": "npm run build-available-portals",
     "build": "vite build",
     "preview": "vite preview --port 8080",
     "migrate": "node-pg-migrate",

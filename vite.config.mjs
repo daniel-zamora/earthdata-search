@@ -5,7 +5,7 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import rollupNodePolyFill from 'rollup-plugin-polyfill-node'
 import { resolve } from 'path'
 
-import availablePortals from './portals/index'
+import availablePortals from './portals/availablePortals.json'
 
 import { getApplicationConfig } from './sharedUtils/config'
 
